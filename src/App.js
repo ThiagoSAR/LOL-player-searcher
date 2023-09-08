@@ -5,7 +5,6 @@ import './App.css';
 export default function App() {
   const [searchText, setSearchText] = useState('');
   const [playerData, setPlayerData] = useState({});
-  // const [summonerMastery, setSummonerMastery] = useState({});
   const API_KEY = "";
 
   function searchForPlayer(event) {
@@ -14,32 +13,11 @@ export default function App() {
       .then(function (response) {
         setPlayerData(response.data);
         const id = response.data.id;
-        // const mastery = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + id + '?api_key=' + API_KEY;
-        // axios.get(mastery)
-        //   .then(function (response) {
-        //     setSummonerMastery(response.data);
-
-        //     const championInfo = getChampionById(response.data, "106")
-        //     console.log("Champion Info", championInfo);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
       })
       .catch(function (error) {
         console.log(error);
       });
   }
-
-  // function getChampionById(data, id) {
-  //   let dataKeys = Object.keys(data);
-  //   for (let key of dataKeys) {
-  //     if (data[key].key === id) {
-  //       return data[key];
-  //     }
-  //   }
-  //   return { error: "Champion not found" };
-  // }
 
   return (
     <div className='App'>
